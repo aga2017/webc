@@ -13,8 +13,8 @@ before_install:
   ${TRAVIS_COMMIT::7}.iso
 - sha1=($(sha1sum ${TRAVIS_COMMIT::7}.iso))
 - echo ISO SHA1 ${sha1}
-- aws s3 cp --storage-class REDUCED_REDUNDANCY --acl public-read public ${TRAVIS_COMMIT::7}.iso
-  s3://build.webconverger.com/$(date --rfc-3339=date)/${isobuildersha256}/${sha1}.iso
+- aws s3 cp --storage-class REDUCED_REDUNDANCY --acl public-read ${TRAVIS_COMMIT::7}.iso
+  s3://build.webconverger.com/$(date --rfc-3339=date)/${TRAVIS_COMMIT::7}-${isobuildersha256}/${sha1}.iso
 env:
   global:
   - secure: dpGJ4Nr+M+PNXXt/zlqdbKVyvXefL+Nl0/Tph1NVz1F/X4iibg4N7brNg0tKf3YxV8VM2h6w4FPCmpyT/hLFJeOLPkGOvbu54h2DNBCqIxXqEn0CsbeBqrJ2wPdHSkNkNlixRmL5pP61rDRx6dqvrn0XJtUfDV91QQKaJMhn0bNB0gf3PI/byv6xgF84YsVGmY8w6KyiWg1BXO5L237Yyp3+PqPAKYzJKf9Sh+sVTRM5WbAoPNJP1taFJslbvRmj9x0lSz6mZPuCQrXCaN9bqyX3PV68AWiLOW/ir36bnjtm2wRtdt3IJCfuJCdA7iBFIQ4oGYLHPfAH6s3SbHDa6323WzDnyaKoXSQSDL2EpBHw09Jae5f1kGYsOOvw5UFOT+sHXRV1u++mmrBik2JwVZICmAscWiDshxcPY0OaxfyBGQtjF/FOt//JcE3mDGSI1dyVv/6/9isa9cuXbgEAc4sO8xFLDf3jvxlSHCLibVdfGP1StLDJpZ1TjttaQTodZu1o9UJFEZ2KnXhwVWtmiKGzeHl2IWKwhKoySHigWVvFZpRHyDOwJKFJKfyuPzBzJHeBrSZ9jHM3U8zcWGK3I8jA49SJ7cWdZoFWOn5tPGFqdj804zcS47dcs6UwZWVFDw2I4Dt2PSZnx/gHWM+DEdqxCZHETEYk64DzAMMSKxM=
