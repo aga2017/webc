@@ -1,0 +1,13 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+- docker pull webc/isobuilder
+- docker inspect --format='{{.RepoDigests}}' webc/isobuilder
+- docker run --name webc -it -v $TRAVIS_BUILD_DIR:/root/Debian-Live-config/webconverger/chroot webc/isobuilder make
+- docker cp webc:/root/Debian-Live-config/webconverger/live-image-i386.hybrid.iso ${TRAVIS_COMMIT::7}.iso
+- sha1sum ${TRAVIS_COMMIT::7}.iso
