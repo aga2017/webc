@@ -128,6 +128,21 @@ Description: Graphics file viewer under X11
  .
  Includes xsetbg, xview and uufilter.
 
+Package: libhtml-tagset-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 32
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 3.20-3
+Depends: perl
+Description: Data tables pertaining to HTML
+ HTML-Tagset contains data tables useful in dealing with HTML.  For instance,
+ it provides %HTML::Tagset::emptyElement, which lists all of the HTML elements
+ which cannot have content.  It provides no functions or methods.
+Homepage: https://metacpan.org/release/HTML-Tagset
+
 Package: iputils-ping
 Status: install ok installed
 Priority: important
@@ -857,6 +872,22 @@ Description: X.Org X server -- Intel i8xx, i9xx display driver
  2007 and newer). You can try uninstalling this driver and let the
  server use it's builtin modesetting driver instead.
 Homepage: https://www.x.org/
+
+Package: arp-scan
+Status: install ok installed
+Priority: optional
+Section: admin
+Installed-Size: 786
+Maintainer: Debian Security Tools Packaging Team <pkg-security-team@lists.alioth.debian.org>
+Architecture: i386
+Version: 1.9-1
+Depends: libc6 (>= 2.15), libpcap0.8 (>= 0.9.8), ieee-data
+Recommends: libwww-perl
+Description: arp scanning and fingerprinting tool
+ arp-scan is a command-line tool that uses the ARP protocol to discover and
+ fingerprint IP hosts on the local network. It is available for Linux and BSD
+ under the GPL licence
+Homepage: https://github.com/royhills/arp-scan
 
 Package: perl-base
 Essential: yes
@@ -1906,6 +1937,23 @@ Description: common files for the GTK+ graphical user interface library
  This package contains the common files which the libraries need.
 Homepage: http://www.gtk.org/
 
+Package: libhttp-date-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 56
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.02-1
+Replaces: libwww-perl (<< 6.00)
+Depends: perl, libtimedate-perl
+Breaks: libwww-perl (<< 6.00)
+Description: module of date conversion routines
+ HTTP::Date provides functions that deal the date formats used by the HTTP
+ protocol (and then some more). Only the first two functions, time2str() and
+ str2time(), are exported by default.
+Homepage: http://search.cpan.org/dist/HTTP-Date/
+
 Package: klibc-utils
 Status: install ok installed
 Priority: optional
@@ -2839,6 +2887,20 @@ Description: FFmpeg library with functions for simplifying programming - runtime
  This package contains the runtime files.
 Homepage: https://ffmpeg.org/
 
+Package: ieee-data
+Status: install ok installed
+Priority: optional
+Section: net
+Installed-Size: 6184
+Maintainer: Luciano Bello <luciano@debian.org>
+Architecture: all
+Version: 20160613.1
+Depends: wget | libwww-perl | curl
+Description: OUI and IAB listings
+ Provide the Organizationally Unique Identifier (OUI) and Individual Address
+ Block (IAB) listings of identifiers assigned by IEEE Standards Association.
+Homepage: http://standards.ieee.org/regauth/oui/index.shtml
+
 Package: libsystemd-login0
 Status: install ok installed
 Priority: extra
@@ -3263,6 +3325,60 @@ Description: wrapper library for evdev devices
  This package contains the files required to run software using
  libevdev.
 Homepage: http://www.freedesktop.org/wiki/Software/libevdev/
+
+Package: libhttp-cookies-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 76
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.01-1
+Replaces: libwww-perl (<< 6.00)
+Depends: perl, libhttp-date-perl, libhttp-message-perl
+Breaks: libwww-perl (<< 6.00)
+Description: HTTP cookie jars
+ This class is for objects that represent a "cookie jar" -- that is, a
+ database of all the HTTP cookies that a given LWP::UserAgent object knows
+ about.
+ .
+ Cookies are a general mechanism which server side connections can use to both
+ store and retrieve information on the client side of the connection. For more
+ information about cookies refer to
+ <URL:http://curl.haxx.se/rfc/cookie_spec.html> and
+ <URL:http://www.cookiecentral.com/>. HTTP::Cookies also implements the new
+ style cookies described in RFC 2965. The two variants of cookies are supposed
+ to be able to coexist happily.
+ .
+ Instances of the class HTTP::Cookies are able to store a collection of
+ Set-Cookie2: and Set-Cookie: headers and are able to use this information to
+ initialize Cookie-headers in HTTP::Request objects. The state of a
+ HTTP::Cookies object can be saved in and restored from files.
+Homepage: https://metacpan.org/release/HTTP-Cookies
+
+Package: libencode-locale-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 34
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 1.05-1
+Depends: perl
+Description: utility to determine the locale encoding
+ In many applications it's wise to let Perl use Unicode for the strings it
+ processes. Most of the interfaces Perl has to the outside world are still byte
+ based. Programs therefore need to decode byte strings that enter the program
+ from the outside and encode them again on the way out.
+ .
+ The POSIX locale system is used to specify both the language conventions
+ requested by the user and the preferred character set to consume and output.
+ The Encode::Locale module looks up the charset and encoding (called a CODESET
+ in the locale jargon) and arranges for the Encode module to know this encoding
+ under the name "locale". It means bytes obtained from the environment can be
+ converted to Unicode strings by calling Encode::encode(locale => $bytes) and
+ converted back again with Encode::decode(locale => $string).
+Homepage: https://metacpan.org/release/Encode-Locale
 
 Package: libsigc++-2.0-0c2a
 Status: deinstall ok config-files
@@ -3775,6 +3891,27 @@ Description: JPEG 2000 image compression/decompression library - runtime
  this is the runtime package
 Homepage: http://www.openjpeg.org
 
+Package: libtimedate-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 96
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 2.3000-2
+Replaces: timedate
+Provides: timedate
+Depends: perl
+Breaks: timedate
+Description: collection of modules to manipulate date/time information
+ TimeDate is a collection of Perl modules useful for manipulating date and
+ time information. Date::Parse can parse absolute date specifications in a
+ wide variety of input formats and many languages (via Date::Language).
+ .
+ This package also includes Date::Format, which can format dates into strings,
+ as well as Time::Zone, which contains miscellaneous time zone functions.
+Homepage: https://metacpan.org/release/TimeDate
+
 Package: gcc-4.9
 Status: install ok installed
 Priority: optional
@@ -4073,6 +4210,25 @@ Description: Berkeley v5.3 Database Libraries [runtime]
  This is the runtime package for programs that use the v5.3 Berkeley
  database library.
 Homepage: http://www.oracle.com/technetwork/database/database-technologies/berkeleydb/overview/index.html
+
+Package: libnet-ssleay-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 1260
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Version: 1.80-1
+Depends: perl (>= 5.24.1~rc4-1), perl-openssl-abi-1.1, perlapi-5.24.1, libc6 (>= 2.4), libssl1.1 (>= 1.1.0)
+Suggests: libmime-base64-perl
+Description: Perl module for Secure Sockets Layer (SSL)
+ Net::SSLeay is a perl module that allows you to call Secure Sockets Layer
+ (SSL) functions of the SSLeay library directly from your perl scripts. It
+ is useful if you want to program robots that access secure web servers or
+ if you want to build your own applications over SSL encrypted tunnels. If
+ you just want to view web pages on https servers, you do not need this -
+ your web browser already knows to do that.
+Homepage: https://metacpan.org/release/Net-SSLeay
 
 Package: libldap-common
 Status: install ok installed
@@ -4451,6 +4607,31 @@ Description: lossless data compressor based on the LZMA algorithm
  Lzip decompresses almost as fast as gzip and compresses better than bzip2,
  which makes it well suited for software distribution and data archiving.
 Homepage: http://www.nongnu.org/lzip/lzip.html
+
+Package: perl-openssl-defaults
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 27
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Multi-Arch: same
+Version: 3
+Provides: perl-openssl-abi-1.1
+Depends: libc6 (>= 2.1.3), libssl1.1 (>= 1.1.0)
+Breaks: libcrypt-openssl-bignum-perl (<< 0.07-2), libcrypt-openssl-dsa-perl (<< 0.18-2), libcrypt-openssl-pkcs10-perl (<< 0.16-2), libcrypt-openssl-pkcs12-perl (<< 0.7-3), libcrypt-openssl-rsa-perl (<< 0.28-5), libcrypt-openssl-x509-perl (<< 1.8.7-3), libcrypt-smime-perl (<< 0.19-2), libcrypt-ssleay-perl (<< 0.73.04-2), libnet-ssleay-perl (<< 1.78-2)
+Description: version compatibility baseline for Perl OpenSSL packages
+ A subset of Perl XS module packages expose the OpenSSL binary interface
+ to Perl code. This can lead to incompatibilities if these packages are
+ linked against different versions of OpenSSL.
+ .
+ This package provides a virtual package "perl-openssl-abi-x" that
+ corresponds to the libssl-dev package SONAME it was built against.
+ The packages that need to stay compatible with each other can depend
+ on this.
+ .
+ Tools are also provided for generating this dependency with minimum
+ hassle. See the instructions in README.Debian.
 
 Package: xserver-xorg-video-savage
 Status: install ok installed
@@ -5348,6 +5529,21 @@ Description: POSIX 1003.1e capabilities (library)
  This package contains the shared library.
 Homepage: http://sites.google.com/site/fullycapable/
 
+Package: libio-html-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 40
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 1.001-1
+Depends: perl
+Description: open an HTML file with automatic charset detection
+ IO::HTML provides an easy way to open a file containing HTML while
+ automatically determining its encoding.  It uses the HTML5 encoding
+ sniffing algorithm specified in section 8.2.2.1 of the draft standard.
+Homepage: http://search.cpan.org/dist/IO-HTML/
+
 Package: libgconf-2-4
 Status: install ok installed
 Priority: optional
@@ -5655,6 +5851,35 @@ Description: easy to use and lightweight logging library
  .
  This package contains the shared library.
 Homepage: http://www.liblogging.org/
+
+Package: liblwp-protocol-https-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 56
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.06-2
+Replaces: libwww-perl (<< 6.02)
+Depends: perl, ca-certificates, libio-socket-ssl-perl (>= 1.54), libnet-http-perl, libwww-perl (>= 6.05-2)
+Suggests: libcrypt-ssleay-perl
+Breaks: libwww-perl (<< 6.02)
+Description: HTTPS driver for LWP::UserAgent
+ The LWP::Protocol::https module provides support for using HTTPS schemed URLs
+ with LWP. LWP::Protocol::https is a plug-in to the LWP protocol handling, so
+ you don't use it directly. Once the module is installed LWP is able to access
+ sites using HTTP over SSL/TLS.
+ .
+ If hostname verification is requested by LWP::UserAgent's ssl_opts, and
+ neither SSL_ca_file nor SSL_ca_path is set, then SSL_ca_file is implied to be
+ the one provided by ca-certificates.
+ .
+ This module used to be bundled with libwww-perl, but it was unbundled in
+ v6.02 in order to be able to declare its dependencies properly for the CPAN
+ tool-chain. Applications that need HTTPS support can just declare their
+ dependency on LWP::Protocol::https and will no longer need to know what
+ underlying modules to install.
+Homepage: https://metacpan.org/release/LWP-Protocol-https
 
 Package: linux-base
 Status: install ok installed
@@ -6785,6 +7010,34 @@ Description: Core GStreamer libraries and elements
  This package contains the core library and elements.
 Homepage: http://gstreamer.freedesktop.org
 
+Package: xscreensaver
+Status: install ok installed
+Priority: optional
+Section: x11
+Installed-Size: 2256
+Maintainer: Tormod Volden <debian.tormod@gmail.com>
+Architecture: i386
+Version: 5.36-1
+Depends: libatk1.0-0 (>= 1.12.4), libc6 (>= 2.15), libcairo2 (>= 1.2.4), libfontconfig1 (>= 2.11), libfreetype6 (>= 2.2.1), libgdk-pixbuf2.0-0 (>= 2.22.0), libglade2-0 (>= 1:2.6.4-2~), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.24.0), libice6 (>= 1:1.0.0), libpam0g (>= 0.99.7.1), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpangoft2-1.0-0 (>= 1.14.0), libsm6, libx11-6, libxext6, libxi6, libxinerama1, libxml2 (>= 2.7.4), libxmu6, libxpm4, libxrandr2 (>= 2:1.2.0), libxrender1, libxt6, libxxf86vm1, xscreensaver-data
+Recommends: libjpeg-turbo-progs, perl5, miscfiles | wordlist, libgnomeui-0
+Suggests: xfishtank, xdaliclock, xscreensaver-data-extra, xscreensaver-gl, xscreensaver-gl-extra, fortune, www-browser, qcam | streamer, gdm3 | kdm-gdmcompat
+Conffiles:
+ /etc/pam.d/xscreensaver aba1459ad83b2c2594c27216d8662278
+Description: Screensaver daemon and frontend for X11
+ XScreenSaver is a modular screen saver and locker for X11,
+ containing more than 200 screen savers.
+ .
+ This package includes the bare minimum needed to blank and lock your
+ screen. Install this package if you want to use the xscreensaver engine
+ to control screen blanking and launching display modes ("hacks"). If
+ you only want to use other screensaver engines, you don't need to
+ install this package.
+ .
+ The graphical display modes are in the xscreensaver-data,
+ xscreensaver-data-extra, xscreensaver-gl and xscreensaver-gl-extra
+ packages.
+Homepage: http://www.jwz.org/xscreensaver/
+
 Package: x11-utils
 Status: install ok installed
 Priority: optional
@@ -7905,6 +8158,36 @@ Description: collection of bootloaders (common)
  This package contains the common files.
 Homepage: http://www.syslinux.org/
 
+Package: xscreensaver-data
+Status: install ok installed
+Priority: optional
+Section: x11
+Installed-Size: 1623
+Maintainer: Tormod Volden <debian.tormod@gmail.com>
+Architecture: i386
+Source: xscreensaver
+Version: 5.36-1
+Depends: libc6 (>= 2.7), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.12.0), libice6 (>= 1:1.0.0), libjpeg62-turbo (>= 1.3.1), libsm6, libx11-6, libxext6, libxft2 (>> 2.1.1), libxmu6, libxpm4, libxt6, libwww-perl
+Suggests: xscreensaver
+Conffiles:
+ /etc/X11/app-defaults/XScreenSaver-nogl 7bb51dcf0a973b7701b54fb1d6f2597e
+Description: Screen saver modules for screensaver frontends
+ XScreenSaver is a modular screen saver and locker for X11,
+ containing more than 200 screen savers.
+ .
+ This package contains a small selection of graphical screen saver
+ modules (listed below) from the xscreensaver collection. This package
+ can be used by xscreensaver and also some other screensaver engines.
+ .
+ This is the selected set of non-GL screensavers shipped by default:
+ abstractile, binaryring, cwaves, deco, distort, fiberlamp, fuzzyflakes,
+ galaxy, hexadrop, m6502, metaballs, penrose, ripples, shadebobs,
+ slidescreen, swirl, tessellimage, xlyap.
+ .
+ More display modes can be found in xscreensaver-data-extra,
+ xscreensaver-gl and xscreensaver-gl-extra packages.
+Homepage: http://www.jwz.org/xscreensaver/
+
 Package: file
 Status: install ok installed
 Priority: standard
@@ -8638,6 +8921,30 @@ Description: libkmod shared library
  This library provides an API for insertion, removal, configuration and
  listing of kernel modules.
 
+Package: libio-socket-ssl-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 504
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 2.044-1
+Depends: libnet-ssleay-perl (>= 1.59), netbase, perl
+Recommends: libnet-libidn-perl | libnet-idn-encode-perl | liburi-perl, perl (>= 5.15.6) | libsocket-perl | libsocket6-perl, perl (>= 5.19.8) | libio-socket-ip-perl (>= 0.20) | libio-socket-inet6-perl
+Suggests: ca-certificates
+Description: Perl module implementing object oriented interface to SSL sockets
+ This module is a true drop-in replacement for IO::Socket::INET that
+ uses SSL to encrypt data before it is transferred to a remote server
+ or client.  IO::Socket::SSL supports all the extra features that one
+ needs to write a full-featured SSL client or server application:
+ multiple SSL contexts, cipher selection, certificate verification, and
+ SSL version selection.  As an extra bonus, it works perfectly with
+ mod_perl.
+ .
+ IO::Socket::SSL uses IPv6 if libio-socket-ip-perl (>= 0.20) or
+ libio-socket-inet6-perl is installed.
+Homepage: https://metacpan.org/release/IO-Socket-SSL
+
 Package: libpulse0
 Status: install ok installed
 Priority: optional
@@ -8840,6 +9147,23 @@ Description: report the search path for a class's ISA tree
  from, listed in the order that Perl would search for a method not
  implemented in the current class. The list contains no duplicates.
 Homepage: http://search.cpan.org/dist/Class-ISA/
+
+Package: libhtml-tree-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 489
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 5.03-2
+Depends: perl, libhtml-parser-perl, libhtml-tagset-perl
+Recommends: libhtml-format-perl, libwww-perl
+Description: Perl module to represent and create HTML syntax trees
+ HTML::Tree is a collection of modules that represent, create and extract
+ information from HTML syntax trees.  These modules used to be part of
+ the libwww-perl distribution, but are now unbundled in order to
+ facilitate a separate development track.
+Homepage: https://metacpan.org/release/HTML-Tree
 
 Package: xserver-xorg-video-radeon
 Status: install ok installed
@@ -9983,6 +10307,25 @@ Description: small, friendly text editor inspired by Pico
   - full internationalization support.
 Homepage: https://www.nano-editor.org/
 
+Package: libglade2-0
+Status: install ok installed
+Priority: optional
+Section: oldlibs
+Installed-Size: 153
+Maintainer: Andreas Rottmann <rotty@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: libglade2
+Version: 1:2.6.4-2
+Depends: libatk1.0-0 (>= 1.12.4), libc6 (>= 2.4), libcairo2 (>= 1.2.4), libfontconfig1 (>= 2.11), libfreetype6 (>= 2.2.1), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.24.0), libgtk2.0-0 (>= 2.8.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpangoft2-1.0-0 (>= 1.14.0), libxml2 (>= 2.7.4)
+Pre-Depends: multiarch-support
+Description: library to load .glade files at runtime
+ This library allows one to load externally stored user interfaces into
+ programs. This allows alteration of the interface without recompilation
+ of the program.
+ .
+ The interfaces can also be edited with GLADE.
+
 Package: libexiv2-13
 Status: install ok installed
 Priority: optional
@@ -10486,6 +10829,43 @@ Description: low-level Git library
  re-entrant link-able library with a solid API.
 Homepage: http://libgit2.github.com/
 
+Package: xscreensaver-gl
+Status: install ok installed
+Priority: optional
+Section: x11
+Installed-Size: 9896
+Maintainer: Tormod Volden <debian.tormod@gmail.com>
+Architecture: i386
+Source: xscreensaver
+Version: 5.36-1
+Depends: libc6 (>= 2.15), libgdk-pixbuf2.0-0 (>= 2.22.0), libgl1-mesa-glx | libgl1, libglib2.0-0 (>= 2.12.0), libglu1-mesa | libglu1, libice6 (>= 1:1.0.0), libsm6, libx11-6, libxext6, libxft2 (>> 2.1.1), libxmu6, libxpm4, libxt6, libxxf86vm1
+Suggests: xscreensaver
+Conffiles:
+ /etc/X11/app-defaults/XScreenSaver-gl 43e4826a884b23963aa4f40fa01efaaa
+Description: GL(Mesa) screen saver modules for screensaver frontends
+ XScreenSaver is a modular screen saver and locker for X11,
+ containing more than 200 screen savers.
+ .
+ This package contains a small selection of 3D (OpenGL) screen saver
+ modules from the xscreensaver collection. This package can be used by
+ xscreensaver and also some other screensaver engines.
+ .
+ This is the set of GL screensavers shipped by default:
+ antinspect, antspotlight, atunnel, blinkbox, bubble3d, circuit,
+ cityring, cubestack, cubestorm, cubetwist, discoball, dymaxionmap,
+ endgame, energystream, engine, flipflop, flipscreen3d, flyingtoasters,
+ gears, geodesic, geodesicgears, gflux, glblur, glcells, gleidescope,
+ glknots, glmatrix, glschool, glslideshow, glsnake, gltext, hexstrut,
+ hydrostat, hypertorus, jigglypuff, kaleidocycle, lavalite, lockward,
+ mirrorblob, moebius, moebiusgears, molecule, morph3d, pipes, polyhedra,
+ polytopes, projectiveplane, pulsar, quasicrystal, queens, raverhoop,
+ romanboy, sierpinski3d, sonar, spheremonics, splitflap, splodesic,
+ stonerview, superquadrics, topblock, unicrud, voronoi, winduprobot.
+ .
+ More display modes can be found in the xscreensaver-data,
+ xscreensaver-data-extra and xscreensaver-gl-extra packages.
+Homepage: http://www.jwz.org/xscreensaver/
+
 Package: libxcursor1
 Status: install ok installed
 Priority: optional
@@ -10880,6 +11260,24 @@ Description: userspace USB programming library
  This package contains what you need to run programs that use this
  library.
 Homepage: http://www.libusb.info
+
+Package: liblwp-mediatypes-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 100
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.02-1
+Replaces: libwww-perl (<< 6.00)
+Depends: perl
+Breaks: libwww-perl (<< 6.00)
+Description: module to guess media type for a file or a URL
+ LWP::MediaTypes provides functions for handling media (also known as MIME)
+ types and encodings. The mapping from file extensions to media types is
+ defined by the media.types file. If the ~/.media.types file exists it is used
+ instead. For backwards compatibility it will also look for ~/.mime.types.
+Homepage: http://search.cpan.org/dist/LWP-MediaTypes/
 
 Package: xserver-xorg-video-vesa
 Status: install ok installed
@@ -11688,6 +12086,29 @@ Description: Intel processor microcode tool
  installed by the intel-microcode package.
 Homepage: https://gitlab.com/iucode-tool
 
+Package: liburi-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 228
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 1.71-1
+Depends: perl
+Suggests: libwww-perl
+Description: module to manipulate and access URI strings
+ URI is a collection of Perl modules that represent and manipulate Uniform
+ Resource Identifier (URI) references as specified in RFC 2396.
+ .
+ URI objects can be used to access and manipulate the various components
+ that make up these strings.  There are also methods to combine URIs in
+ various ways.
+ .
+ The URI class replaces the URI::URL class that used to be distributed with
+ libwww-perl. This package also includes an emulation of the old URI::URL
+ interface, which implements both the old and the new interface.
+Homepage: https://metacpan.org/release/URI
+
 Package: libproxy1
 Status: deinstall ok config-files
 Priority: optional
@@ -12364,6 +12785,29 @@ Description: System independent dlopen wrapper for GNU libtool
    * GNU DLD (emulates dynamic linking for static libraries)
    * libtool's dlpreopen
 Homepage: http://www.gnu.org/software/libtool/
+
+Package: libhtml-parser-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 229
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: i386
+Version: 3.72-3
+Depends: perl (>= 5.24.1~rc3-3), perlapi-5.24.1, libc6 (>= 2.4), libhtml-tagset-perl, liburi-perl
+Recommends: libhttp-message-perl
+Suggests: libdata-dump-perl
+Enhances: libwww-perl
+Description: collection of modules that parse HTML text documents
+ HTML::Parser is a collection of modules useful for handling HTML documents.
+ These modules used to be part of the libwww-perl distribution, but are now
+ unbundled in order to facilitate a separate development track.
+ .
+ Objects of the HTML::Parser class will recognize markup and separate it from
+ content data. As different kinds of markup are recognized, the corresponding
+ event handler is invoked. The document to be parsed may also be supplied in
+ arbitrary chunks, making on-the-fly parsing of network documents possible.
+Homepage: https://metacpan.org/release/HTML-Parser
 
 Package: dpkg
 Essential: yes
@@ -13280,6 +13724,32 @@ Description: Linux for modern PCs (meta-package)
  .
  This kernel also runs on a Xen hypervisor.  It supports both privileged
  (dom0) and unprivileged (domU) operation.
+
+Package: libfile-listing-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 56
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.04-1
+Replaces: libwww-perl (<< 6.00)
+Depends: perl, libhttp-date-perl
+Breaks: libwww-perl (<< 6.00)
+Description: module to parse directory listings
+ File::Listing exports a single function called parse_dir(), which can be used
+ to parse directory listings.
+ .
+ The first parameter to parse_dir() is the directory listing to parse. It can
+ be a scalar, a reference to an array of directory lines or a glob
+ representing a filehandle to read the directory listing from.
+ .
+ The second parameter is the time zone to use when parsing time stamps in the
+ listing. If this value is undefined, then the local time zone is assumed.
+ .
+ The third parameter is the type of listing to assume. Currently supported
+ formats are 'unix', 'apache' and 'dosftp'. The default value 'unix'.
+Homepage: http://search.cpan.org/dist/File-Listing/
 
 Package: firmware-atheros
 Status: install ok installed
@@ -14216,6 +14686,31 @@ Description: library interface to the XKB compiler - shared library
  https://github.com/xkbcommon/libxkbcommon.git
 Homepage: http://www.xkbcommon.org/
 
+Package: libhttp-message-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 184
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.11-1
+Replaces: libwww-perl (<< 6.00)
+Depends: perl, libencode-locale-perl, libhttp-date-perl, libio-html-perl, liblwp-mediatypes-perl, liburi-perl, perl (>= 5.11) | libio-compress-perl
+Breaks: libwww-perl (<< 6.00)
+Description: perl interface to HTTP style messages
+ The HTTP::Message distribution contains classes useful for representing the
+ messages passed in HTTP style communication. These are classes representing
+ requests, responses and the headers contained within them.
+ .
+ The HTTP::Headers class encapsulates HTTP-style message headers. The headers
+ consist of attribute-value pairs also called fields, which may be repeated,
+ and which are printed in a particular order. The field names are cases
+ insensitive.
+ .
+ Instances of this class are usually created as member variables of the
+ HTTP::Request and HTTP::Response classes, internal to the library.
+Homepage: https://metacpan.org/release/HTTP-Message
+
 Package: libtag1-vanilla
 Status: install ok installed
 Priority: optional
@@ -14279,6 +14774,27 @@ Description: Mesa OpenGL utility library (GLU)
  .
  This package provides the SGI implementation of GLU provided by the
  Mesa project (ergo the "-mesa" suffix).
+
+Package: libnet-http-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 62
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.12-1
+Replaces: libwww-perl (<< 6.00)
+Depends: perl, perl (>= 5.19.8) | libio-socket-ip-perl | libio-socket-inet6-perl, liburi-perl
+Recommends: libio-socket-ssl-perl
+Breaks: libwww-perl (<< 6.00)
+Description: module providing low-level HTTP connection client
+ The Net::HTTP class is a low-level HTTP client.  An instance of the
+ Net::HTTP class represents a connection to an HTTP server.  The
+ HTTP protocol is described in RFC 2616.  The Net::HTTP class
+ supports HTTP/1.0 and HTTP/1.1. Net::HTTP is a sub-class of IO::Socket::INET.
+ You can mix its methods with reading and writing from the socket directly.
+ This is not necessarily a good idea, unless you know what you are doing.
+Homepage: https://metacpan.org/release/Net-HTTP
 
 Package: libnfnetlink0
 Status: install ok installed
@@ -16501,6 +17017,29 @@ Description: open and royalty free high quality video codec - encoder library
  This package contains the dirac encoder library.
 Homepage: http://diracvideo.org/
 
+Package: libwww-robotrules-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 80
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.01-1
+Replaces: libwww-perl (<< 6.00)
+Depends: perl, liburi-perl
+Breaks: libwww-perl (<< 6.00)
+Description: database of robots.txt-derived permissions
+ WWW::RobotRules parses /robots.txt files as specified in "A Standard for
+ Robot Exclusion", at <http://www.robotstxt.org/wc/norobots.html>. Webmasters
+ can use the /robots.txt file to forbid conforming robots from accessing parts
+ of their web site.
+ .
+ The parsed files are kept in a WWW::RobotRules object, and this object
+ provides methods to check if access to a given URL is prohibited. The same
+ WWW::RobotRules object can be used for one or more parsed /robots.txt files
+ on any number of hosts.
+Homepage: http://search.cpan.org/dist/WWW-RobotRules/
+
 Package: libxcb1
 Status: install ok installed
 Priority: optional
@@ -17508,6 +18047,24 @@ Description: International Components for Unicode
  libraries for ICU.
 Homepage: http://www.icu-project.org
 
+Package: libhttp-negotiate-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 76
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.00-2
+Replaces: libwww-perl (<< 6.00)
+Depends: perl, libhttp-message-perl
+Breaks: libwww-perl (<< 6.00)
+Description: implementation of content negotiation
+ HTTP::Negotiate provides a complete implementation of the HTTP content
+ negotiation algorithm. Content negotiation allows for the selection of a
+ preferred content representation based upon attributes of the negotiable
+ variants and the value of the various Accept* header fields in the request.
+Homepage: http://search.cpan.org/dist/HTTP-Negotiate/
+
 Package: libdvdread4
 Status: install ok installed
 Priority: optional
@@ -17605,6 +18162,26 @@ Description: disk encryption support - shared library
  This package provides the libcryptsetup shared library.
 Homepage: https://gitlab.com/cryptsetup/cryptsetup
 
+Package: libwww-perl
+Status: install ok installed
+Priority: optional
+Section: perl
+Installed-Size: 403
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Architecture: all
+Version: 6.15-1
+Depends: perl, ca-certificates, libencode-locale-perl, libfile-listing-perl, libhtml-parser-perl, libhtml-tagset-perl, libhtml-tree-perl, libhttp-cookies-perl, libhttp-date-perl, libhttp-message-perl, libhttp-negotiate-perl, liblwp-mediatypes-perl, liblwp-protocol-https-perl, libnet-http-perl (>= 6.07), liburi-perl, libwww-robotrules-perl, netbase
+Recommends: libhtml-form-perl, libhtml-format-perl, libhttp-daemon-perl, libmailtools-perl
+Suggests: libauthen-ntlm-perl
+Breaks: fusioninventory-agent (<< 2.1.8-2), gsutil (<< 3.1-1), libfrontier-rpc-perl (<< 0.07b4-6), libhttp-daemon-ssl-perl (<< 1.04-3), libhttp-proxy-perl (<< 0.24-2), libhttp-request-ascgi-perl (<< 1.2-2), libhttp-request-params-perl (<< 1.01-6), libjson-rpc-perl (<< 0.96-3), libpoe-perl (<< 2:1.2990-2), librpc-xml-perl (<< 0.74-2), libsoap-lite-perl (<< 0.7.12-3), libwww-mechanize-formfiller-perl (<< 0.10-2), libwww-mechanize-perl (<< 1.66-2), satutils (<= 0.6), tidy-proxy (<< 0.97-4)
+Description: simple and consistent interface to the world-wide web
+ libwww-perl (also known as LWP) is a collection of Perl modules that provide
+ a simple and consistent programming interface (API) to the World-Wide Web.
+ The main focus of the library is to provide classes and functions that allow
+ you to write WWW clients. It also contains general purpose modules, as well
+ as a simple HTTP/1.1-compatible server implementation.
+Homepage: https://metacpan.org/release/libwww-perl
+
 Package: libegl1-mesa
 Status: install ok installed
 Priority: optional
@@ -17674,6 +18251,30 @@ Description: streams library for Strigi Desktop Search
  .
  See the 'strigi-daemon' package for more information.
 Homepage: http://strigi.sourceforge.net
+
+Package: libpcap0.8
+Status: install ok installed
+Priority: optional
+Section: libs
+Installed-Size: 337
+Maintainer: Romain Francoise <rfrancoise@debian.org>
+Architecture: i386
+Multi-Arch: same
+Source: libpcap
+Version: 1.8.1-3
+Replaces: libpcap0.8-dev (<< 1.0.0-2)
+Depends: libc6 (>= 2.11)
+Description: system interface for user-level packet capture
+ libpcap (Packet CAPture) provides a portable framework for low-level
+ network monitoring.  Applications include network statistics collection,
+ security monitoring, network debugging, etc.
+ .
+ Since almost every system vendor provides a different interface for
+ packet capture, and since there are several tools that require this
+ functionality, the libpcap authors created this system-independent API
+ to ease in porting and to alleviate the need for several
+ system-dependent packet capture modules in each application.
+Homepage: http://www.tcpdump.org/
 
 Package: libwayland-server0
 Status: install ok installed

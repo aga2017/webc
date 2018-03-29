@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Name=Hexstrut
+Exec=/usr/lib/xscreensaver/hexstrut -root
+TryExec=/usr/lib/xscreensaver/hexstrut
+Comment=A grid of hexagons composed of rotating Y-shaped struts. Waves of rotation and color changes randomly propagate across the plane. Written by Jamie Zawinski.
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Screensaver;
+OnlyShowIn=MATE;
