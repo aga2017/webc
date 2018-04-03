@@ -147,10 +147,6 @@ setup_root() {
 
 # Trap any shell exits with the failed handler
 trap failed_install EXIT
-#AGA begin
-clear_screen
-AGA_mode=$(dialog --nocancel --menu "Select Kiosk or Showcase" 17 60 10 kiosk "Kiosk mode" showcase "Showcase mode" 2>&1 1>&4)
-#AGA end
 
 clear_screen
 disk=$( find_disk )
@@ -159,10 +155,6 @@ root_mount=/mnt/root
 partition_disk $disk
 verify_partition $disk
 setup_root $root_mount $root_partition
-#AGA begin
-echo AGA_mode=\""$AGA_mode"\" > ${root_mount}/live/aga-mod.conf
-_logs "write AGA_mode=$AGA_mode to ${root_mount}/live/aga-mod.conf"
-#AGA end
 install_extlinux $root_mount $root_partition $disk
 verify_extlinux_mbr $disk
 

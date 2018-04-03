@@ -302,8 +302,11 @@ update_cmdline() {
 
 	# Update $device
 	. "/etc/webc/webc.conf"
-
-	if curl -f -o /etc/webc/cmdline.tmp --retry 5 "$config_url?V=$webc_version&D=$device&K=$kernel"
+# AGA begin
+        . "/home/webc/aga-mod.conf"
+	if curl -f -o /etc/webc/cmdline.tmp --retry 3 "$config_url?V=$webc_version&D=$device&K=$kernel&config=$AGA_mode"
+	#if curl -f -o /etc/webc/cmdline.tmp --retry 3 "$config_url?V=$webc_version&D=$device&K=$kernel"
+# AGA end
 	then
 		# curl has a bug where it doesn't write an empty file
 		touch /etc/webc/cmdline.tmp
