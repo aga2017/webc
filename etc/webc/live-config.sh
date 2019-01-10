@@ -303,6 +303,7 @@ update_cmdline() {
 	# Update $device
 	. "/etc/webc/webc.conf"
 # AGA begin
+        . "${live_image}/live/aga-mod.conf"
         . "/home/webc/aga-mod.conf"
 	if curl -f -o /etc/webc/cmdline.tmp --retry 3 "$config_url?V=$webc_version&D=$device&K=$kernel&config=$AGA_mode"
 	#if curl -f -o /etc/webc/cmdline.tmp --retry 3 "$config_url?V=$webc_version&D=$device&K=$kernel"

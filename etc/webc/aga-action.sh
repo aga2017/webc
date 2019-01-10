@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. "/lib/live/mount/medium/live/aga-mod.conf"
+
 . "/home/webc/aga-mod.conf"
 
 AGA_cfg_srv="shops.amag.ru"
